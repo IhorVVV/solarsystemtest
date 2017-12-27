@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_padding">8dp</dimen>
+    <dimen name="list_item_padding">@dimen/main_padding</dimen>
+    <dimen name="list_image_size">96dp</dimen>
+    <dimen name="image_size">144dp</dimen>
+
+    <dimen name="text_size_small">17sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_x_large">20sp</dimen>
+    <dimen name="text_size_xx_large">21sp</dimen>
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SolarSystem</string>
+    <string name="load_error">Oops!!! Something went wrong!</string>
+    <string name="error">Error</string>
+    <string name="picture">picture</string>
+    <string name="title">title</string>
+    <string name="description">description</string>
+</resources>
