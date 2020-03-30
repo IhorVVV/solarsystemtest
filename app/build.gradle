@@ -10,10 +10,34 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        release {
+            storeFile file('../../Studio/key.store')
+            storePassword "test"
+            keyAlias "test"
+            keyPassword "test"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    flavorDimensions "version"
+    productFlavors {
+        staging {
+            dimension "version"
+            versionName(version + ".staging")
+        }
+
+        payment {
+            dimension "version"
+            signingConfig signingConfigs.release
         }
     }
 
