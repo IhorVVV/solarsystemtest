@@ -20,7 +20,9 @@ jobs:
       with:
         java-version: 1.8
     - name: Build debug APK
-      run: bash ./gradlew assembleStagingDebug --stacktrace
+      run: ./gradlew assembleStagingDebug --stacktrace
+      working-directory: ./solarsystemApp
+      shell: bash
     - name: Upload APK
       uses: actions/upload-artifact@v1
       with:
