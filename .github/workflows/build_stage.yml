@@ -21,8 +21,9 @@ jobs:
         java-version: 1.8
     - name: Build debug APK
       run: bash ./gradlew assembleStagingDebug --stacktrace
+      working-directory: ./solarsystemApp
     - name: Upload APK
       uses: actions/upload-artifact@v1
       with:
         name: app
-        path: app/build/outputs/apk/staging/debug/app-staging-debug.apk
+        path: solarsystemApp/app/build/outputs/apk/staging/debug/app-staging-debug.apk
