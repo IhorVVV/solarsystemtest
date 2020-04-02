@@ -42,6 +42,7 @@ public class DriveQuickstart {
         String folderId = args[1];
         String apkPath = args[2];
         String credJson = args[3];
+        System.out.println("Folder id =  " + folderId);
         final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
         Drive service = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT, credJson))
                 .setApplicationName(APPLICATION_NAME)
