@@ -22,8 +22,14 @@ jobs:
     - name: Build debug APK
       run: bash ./gradlew assembleStagingDebug --stacktrace
       working-directory: ./solarsystemApp
-    - name: Upload APK
-      uses: actions/upload-artifact@v1
-      with:
-        name: app
-        path: solarsystemApp/app/build/outputs/apk/staging/debug/app-staging-debug.apk
+    - name: Upload apk to Google Drive
+      env: 
+        GOOGLE_DRIVE_TEST_APK_FOLDER_ID: ${{ secrets.GOOGLE_DRIVE_TEST_APK_FOLDER_ID }}
+        GOOGLE_DRIVE_CREDENTIALS_GSON: ${{ secrets.GOOGLE_DRIVE_CREDENTIALS_GSON }} 
+      run: bash ./gradlew run --args='app-staging-debug.apk $env:GOOGLE_DRIVE_TEST_APK_FOLDER_ID ../solarsystemApp/app/build/outputs/apk/staging/debug/app-staging-debug.apk $env:GOOGLE_DRIVE_CREDENTIALS_GSON'
+      working-directory: ./solarsystemGoogleDrive
+#     - name: Upload APK
+#       uses: actions/upload-artifact@v1
+#       with:
+#         name: app
+#         path: solarsystemApp/app/build/outputs/apk/staging/debug/app-staging-debug.apk
