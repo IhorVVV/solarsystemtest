@@ -23,7 +23,6 @@ jobs:
       run: bash ./gradlew assembleStagingDebug --stacktrace
       working-directory: ./solarsystemApp
     - name: Upload apk to Google Drive
-      shell: bash
       env: 
         GOOGLE_DRIVE_TEST_APK_FOLDER_ID: ${{ secrets.GOOGLE_DRIVE_TEST_APK_FOLDER_ID }}
         GOOGLE_DRIVE_CREDENTIALS_GSON: ${{ secrets.GOOGLE_DRIVE_CREDENTIALS_GSON }} 
