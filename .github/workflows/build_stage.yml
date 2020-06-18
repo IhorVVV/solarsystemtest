@@ -23,16 +23,16 @@ jobs:
       env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           EVENT_CONTEXT: ${{ toJson(env) }} 
-      run: echo "$GITHUB_CONTEXT", ---- "EVENT_CONTEXT"   
-    - name: Build debug APK
-      run: bash ./gradlew assembleStagingDebug --stacktrace
-      working-directory: ./solarsystemApp
-    - name: Upload apk to Google Drive
-      env: 
-        GOOGLE_DRIVE_TEST_APK_FOLDER_ID: ${{ secrets.GOOGLE_DRIVE_TEST_APK_FOLDER_ID }}
-        GOOGLE_DRIVE_CREDENTIALS_GSON: ${{ secrets.GOOGLE_DRIVE_CREDENTIALS_GSON }} 
-      run: bash ./gradlew run --args='app-staging-debug.apk '"$GOOGLE_DRIVE_TEST_APK_FOLDER_ID"' ../solarsystemApp/app/build/outputs/apk/staging/debug/app-staging-debug.apk '"$GOOGLE_DRIVE_CREDENTIALS_GSON"
-      working-directory: ./solarsystemGoogleDrive
+      run: echo "$GITHUB_CONTEXT", ---- "$EVENT_CONTEXT"   
+#     - name: Build debug APK
+#       run: bash ./gradlew assembleStagingDebug --stacktrace
+#       working-directory: ./solarsystemApp
+#     - name: Upload apk to Google Drive
+#       env: 
+#         GOOGLE_DRIVE_TEST_APK_FOLDER_ID: ${{ secrets.GOOGLE_DRIVE_TEST_APK_FOLDER_ID }}
+#         GOOGLE_DRIVE_CREDENTIALS_GSON: ${{ secrets.GOOGLE_DRIVE_CREDENTIALS_GSON }} 
+#       run: bash ./gradlew run --args='app-staging-debug.apk '"$GOOGLE_DRIVE_TEST_APK_FOLDER_ID"' ../solarsystemApp/app/build/outputs/apk/staging/debug/app-staging-debug.apk '"$GOOGLE_DRIVE_CREDENTIALS_GSON"
+#       working-directory: ./solarsystemGoogleDrive
 #     - name: Upload APK
 #       uses: actions/upload-artifact@v1
 #       with:
