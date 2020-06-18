@@ -19,6 +19,11 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    - name: GitHub workspace
+      env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+          EVENT_CONTEXT: ${{ toJson(env) }} 
+      run: echo "$GITHUB_CONTEXT", ---- "EVENT_CONTEXT"
     - name: Build debug APK
       run: bash ./gradlew assembleStagingDebug --stacktrace
     - name: Upload APK
