@@ -22,7 +22,7 @@ jobs:
     - name: GitHub workspace
       env:
           GITHUB_COMMENTS: ${{ toJson(github.eventcommits) }}
-      run: echo "$GITHUB_CONTEXT"  
+      run: echo "$GITHUB_COMMENTS"  
 #     - name: Build debug APK
 #       run: bash ./gradlew assembleStagingDebug --stacktrace
 #       working-directory: ./solarsystemApp
