@@ -21,9 +21,8 @@ jobs:
         java-version: 1.8
     - name: GitHub workspace
       env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-          EVENT_CONTEXT: ${{ toJson(env) }} 
-      run: echo "$GITHUB_CONTEXT", ---- "$EVENT_CONTEXT"   
+          GITHUB_COMMENTS: ${{ toJson(github.eventcommits) }}
+      run: echo "$GITHUB_CONTEXT"  
 #     - name: Build debug APK
 #       run: bash ./gradlew assembleStagingDebug --stacktrace
 #       working-directory: ./solarsystemApp
