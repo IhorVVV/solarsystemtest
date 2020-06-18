@@ -21,7 +21,7 @@ jobs:
         java-version: 1.8
     - name: GitHub workspace
       env:
-          GITHUB_COMMENTS: ${{ toJson(github.eventcommits) }}
+          GITHUB_COMMENTS: ${{ toJson(github.event.commits) }}
       run: echo "$GITHUB_COMMENTS"  
 #     - name: Build debug APK
 #       run: bash ./gradlew assembleStagingDebug --stacktrace
